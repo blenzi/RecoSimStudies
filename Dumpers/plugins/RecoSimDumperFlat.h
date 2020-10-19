@@ -4,87 +4,87 @@
 // system include files
 #include "FWCore/ServiceRegistry/interface/Service.h"
 #include "CommonTools/UtilAlgos/interface/TFileService.h"
-#include "CommonTools/Utils/interface/TFileDirectory.h"
+// #include "CommonTools/Utils/interface/TFileDirectory.h"
 
-#include "FWCore/Framework/interface/Frameworkfwd.h"
-#include "FWCore/Framework/interface/EDConsumerBase.h"
+// #include "FWCore/Framework/interface/Frameworkfwd.h"
+// #include "FWCore/Framework/interface/EDConsumerBase.h"
 #include "FWCore/Framework/interface/EDAnalyzer.h"
 
-#include "FWCore/Framework/interface/EDProducer.h"
-#include "FWCore/Framework/interface/Event.h"
-#include "FWCore/Framework/interface/ESHandle.h"
-#include "FWCore/Framework/interface/MakerMacros.h"
-#include "FWCore/Utilities/interface/InputTag.h"
-#include "FWCore/ParameterSet/interface/ParameterSet.h"
+// #include "FWCore/Framework/interface/EDProducer.h"
+// #include "FWCore/Framework/interface/Event.h"
+// #include "FWCore/Framework/interface/ESHandle.h"
+// #include "FWCore/Framework/interface/MakerMacros.h"
+// #include "FWCore/Utilities/interface/InputTag.h"
+// #include "FWCore/ParameterSet/interface/ParameterSet.h"
 
-#include "DataFormats/Common/interface/Handle.h"
-#include "FWCore/Framework/interface/LooperFactory.h"
-#include "FWCore/Framework/interface/ESProducerLooper.h"
-#include "FWCore/Framework/interface/EDFilter.h"
-#include "FWCore/Framework/interface/ESHandle.h"
-#include "FWCore/Framework/interface/ESProducts.h"
-#include "FWCore/Framework/interface/Event.h"
+// #include "DataFormats/Common/interface/Handle.h"
+// #include "FWCore/Framework/interface/LooperFactory.h"
+// #include "FWCore/Framework/interface/ESProducerLooper.h"
+// #include "FWCore/Framework/interface/EDFilter.h"
+// #include "FWCore/Framework/interface/ESHandle.h"
+// #include "FWCore/Framework/interface/ESProducts.h"
+// #include "FWCore/Framework/interface/Event.h"
 
 #include "DataFormats/FWLite/interface/Event.h"
-#include "DataFormats/FWLite/interface/Handle.h"
+// #include "DataFormats/FWLite/interface/Handle.h"
 
-#include "FWCore/FWLite/interface/FWLiteEnabler.h"
+// #include "FWCore/FWLite/interface/FWLiteEnabler.h"
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 //#include "FWCore/PythonParameterSet/interface/MakeParameterSets.h"
 
-#include "Geometry/CaloTopology/interface/CaloTopology.h"
+// #include "Geometry/CaloTopology/interface/CaloTopology.h"
 #include "Geometry/CaloGeometry/interface/CaloGeometry.h"
 #include "Geometry/CaloGeometry/interface/CaloSubdetectorGeometry.h"
-#include "Geometry/CaloEventSetup/interface/CaloTopologyRecord.h"
-#include "Geometry/CaloTopology/interface/CaloSubdetectorTopology.h"
+// #include "Geometry/CaloEventSetup/interface/CaloTopologyRecord.h"
+// #include "Geometry/CaloTopology/interface/CaloSubdetectorTopology.h"
 #include "DataFormats/GeometryVector/interface/GlobalPoint.h"
-#include "Geometry/EcalAlgo/interface/EcalBarrelGeometry.h"
-#include "Geometry/EcalAlgo/interface/EcalEndcapGeometry.h"
+// #include "Geometry/EcalAlgo/interface/EcalBarrelGeometry.h"
+// #include "Geometry/EcalAlgo/interface/EcalEndcapGeometry.h"
 
-#include "DataFormats/EcalDetId/interface/EBDetId.h"
-#include "DataFormats/EcalDetId/interface/EEDetId.h"
-#include "DataFormats/VertexReco/interface/VertexFwd.h"
-#include "DataFormats/VertexReco/interface/Vertex.h"
-#include "SimDataFormats/CaloHit/interface/PCaloHitContainer.h"
-#include "SimDataFormats/CaloAnalysis/interface/SimCluster.h"
+// #include "DataFormats/EcalDetId/interface/EBDetId.h"
+// #include "DataFormats/EcalDetId/interface/EEDetId.h"
+// #include "DataFormats/VertexReco/interface/VertexFwd.h"
+// #include "DataFormats/VertexReco/interface/Vertex.h"
+// #include "SimDataFormats/CaloHit/interface/PCaloHitContainer.h"
+// #include "SimDataFormats/CaloAnalysis/interface/SimCluster.h"
 #include "SimDataFormats/CaloAnalysis/interface/CaloParticle.h"
 #include "DataFormats/HepMCCandidate/interface/GenParticleFwd.h"
-#include "DataFormats/HepMCCandidate/interface/GenParticle.h"
-#include "DataFormats/ParticleFlowReco/interface/PFRecHit.h"
-#include "DataFormats/CaloRecHit/interface/CaloCluster.h"
-#include "DataFormats/ParticleFlowReco/interface/PFCluster.h"
-#include "DataFormats/Math/interface/libminifloat.h"
+// #include "DataFormats/HepMCCandidate/interface/GenParticle.h"
+// #include "DataFormats/ParticleFlowReco/interface/PFRecHit.h"
+// #include "DataFormats/CaloRecHit/interface/CaloCluster.h"
+// #include "DataFormats/ParticleFlowReco/interface/PFCluster.h"
+// #include "DataFormats/Math/interface/libminifloat.h"
 
-#include "DataFormats/RecoCandidate/interface/RecoCandidate.h"
-#include "DataFormats/EgammaCandidates/interface/Conversion.h"
-#include "DataFormats/EgammaCandidates/interface/ConversionFwd.h"
-#include "DataFormats/EgammaCandidates/interface/PhotonCore.h"
-#include "DataFormats/EgammaReco/interface/ElectronSeed.h"
-#include "DataFormats/EgammaReco/interface/SuperCluster.h"
-#include "DataFormats/EgammaCandidates/interface/Photon.h"
-#include "DataFormats/EgammaCandidates/interface/GsfElectron.h"
-#include "RecoEcal/EgammaCoreTools/interface/EcalClusterTools.h"
-#include "FWCore/Utilities/interface/isFinite.h"
-#include "CondFormats/EcalObjects/interface/EcalIntercalibConstants.h"
-#include "CondFormats/DataRecord/interface/EcalIntercalibConstantsRcd.h"
-#include "RecoEcal/EgammaCoreTools/interface/EcalClusterTools.h"
-#include "RecoEgamma/EgammaIsolationAlgos/interface/EgammaHcalIsolation.h"
-#include "RecoEgamma/EgammaIsolationAlgos/interface/EgammaTowerIsolation.h"
-#include "RecoEgamma/EgammaIsolationAlgos/interface/EgammaHadTower.h"
-#include "RecoCaloTools/Selectors/interface/CaloConeSelector.h"
-#include "DataFormats/CaloTowers/interface/CaloTowerCollection.h"
-#include "RecoEcal/EgammaCoreTools/interface/EcalTools.h"
+// #include "DataFormats/RecoCandidate/interface/RecoCandidate.h"
+// #include "DataFormats/EgammaCandidates/interface/Conversion.h"
+// #include "DataFormats/EgammaCandidates/interface/ConversionFwd.h"
+// #include "DataFormats/EgammaCandidates/interface/PhotonCore.h"
+// #include "DataFormats/EgammaReco/interface/ElectronSeed.h"
+// #include "DataFormats/EgammaReco/interface/SuperCluster.h"
+// #include "DataFormats/EgammaCandidates/interface/Photon.h"
+// #include "DataFormats/EgammaCandidates/interface/GsfElectron.h"
+// #include "RecoEcal/EgammaCoreTools/interface/EcalClusterTools.h"
+// #include "FWCore/Utilities/interface/isFinite.h"
+// #include "CondFormats/EcalObjects/interface/EcalIntercalibConstants.h"
+// #include "CondFormats/DataRecord/interface/EcalIntercalibConstantsRcd.h"
+// #include "RecoEcal/EgammaCoreTools/interface/EcalClusterTools.h"
+// #include "RecoEgamma/EgammaIsolationAlgos/interface/EgammaHcalIsolation.h"
+// #include "RecoEgamma/EgammaIsolationAlgos/interface/EgammaTowerIsolation.h"
+// #include "RecoEgamma/EgammaIsolationAlgos/interface/EgammaHadTower.h"
+// #include "RecoCaloTools/Selectors/interface/CaloConeSelector.h"
+// #include "DataFormats/CaloTowers/interface/CaloTowerCollection.h"
+// #include "RecoEcal/EgammaCoreTools/interface/EcalTools.h"
 
 
-#include "DataFormats/Math/interface/deltaR.h"
+// #include "DataFormats/Math/interface/deltaR.h"
 //#include "PhysicsTools/Utilities/macros/setTDRStyle.C"
 
 #include "TTree.h"
 
 #include <vector>
 
-#include <TMath.h>
-#include <Math/VectorUtil.h>
+// #include <TMath.h>
+// #include <Math/VectorUtil.h>
 //#include <boost/tokenizer.hpp>
 
 class RecoSimDumperFlat : public edm::EDAnalyzer
@@ -102,8 +102,6 @@ class RecoSimDumperFlat : public edm::EDAnalyzer
       // ----------additional functions-------------------
       float reduceFloat(float val, int bits);
       std::vector<std::pair<DetId, float> >* getHitsAndEnergiesCaloPart(const CaloParticle* iCaloParticle, float simHitEnergy_cut);
-      std::vector<std::pair<DetId, float> >* getHitsAndEnergiesBC(reco::CaloCluster* iPFCluster, const EcalRecHitCollection* recHitsEB, const EcalRecHitCollection* recHitsEE);
-      std::vector<std::pair<DetId, float> >* getHitsAndEnergiesSC(const reco::SuperCluster* iSuperCluster, const EcalRecHitCollection* recHitsEB, const EcalRecHitCollection* recHitsEE);
       GlobalPoint calculateAndSetPositionActual(const std::vector<std::pair<DetId, float> > *hits_and_energies_CP, double _param_T0_EB, double _param_T0_EE, double _param_T0_ES, double _param_W0, double _param_X0, double _minAllowedNorm, bool useES);
 
       // ----------collection tokens-------------------
@@ -129,11 +127,6 @@ class RecoSimDumperFlat : public edm::EDAnalyzer
       bool saveSimhits_;
       bool saveRechits_;
       std::vector<int> genID_;
-
-      // ----------DNN inputs-------------------
-      std::vector<double> HLF_VectorVar_;
-      std::vector<std::vector<double>> PL_VectorVar_;
-      std::vector<double> x_mean_, x_std_, list_mean_, list_std_;
 
       // ----------histograms & trees & branches-------------------
       TTree* tree;

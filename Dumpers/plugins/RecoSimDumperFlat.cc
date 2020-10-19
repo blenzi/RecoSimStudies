@@ -1,12 +1,12 @@
 #include "FWCore/ServiceRegistry/interface/Service.h"
 #include "CommonTools/UtilAlgos/interface/TFileService.h"
-#include "CommonTools/Utils/interface/TFileDirectory.h"
+// #include "CommonTools/Utils/interface/TFileDirectory.h"
 
 #include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/Framework/interface/EDConsumerBase.h"
 #include "FWCore/Framework/interface/EDAnalyzer.h"
 
-#include "FWCore/Framework/interface/EDProducer.h"
+// #include "FWCore/Framework/interface/EDProducer.h"
 #include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/ESHandle.h"
 #include "FWCore/Framework/interface/MakerMacros.h"
@@ -14,8 +14,8 @@
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 
 #include "DataFormats/Common/interface/Handle.h"
-#include "FWCore/Framework/interface/LooperFactory.h"
-#include "FWCore/Framework/interface/ESProducerLooper.h"
+// #include "FWCore/Framework/interface/LooperFactory.h"
+// #include "FWCore/Framework/interface/ESProducerLooper.h"
 #include "FWCore/Framework/interface/EDFilter.h"
 #include "FWCore/Framework/interface/ESHandle.h"
 #include "FWCore/Framework/interface/ESProducts.h"
@@ -28,11 +28,11 @@
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 //#include "FWCore/PythonParameterSet/interface/MakeParameterSets.h"
 
-#include "Geometry/CaloTopology/interface/CaloTopology.h"
+// #include "Geometry/CaloTopology/interface/CaloTopology.h"
 #include "Geometry/CaloGeometry/interface/CaloGeometry.h"
 #include "Geometry/CaloGeometry/interface/CaloSubdetectorGeometry.h"
 #include "Geometry/CaloEventSetup/interface/CaloTopologyRecord.h"
-#include "Geometry/CaloTopology/interface/CaloSubdetectorTopology.h"
+// #include "Geometry/CaloTopology/interface/CaloSubdetectorTopology.h"
 #include "DataFormats/GeometryVector/interface/GlobalPoint.h"
 #include "Geometry/EcalAlgo/interface/EcalBarrelGeometry.h"
 #include "Geometry/EcalAlgo/interface/EcalEndcapGeometry.h"
@@ -44,25 +44,25 @@
 #include "SimDataFormats/CaloHit/interface/PCaloHitContainer.h"
 #include "SimDataFormats/CaloAnalysis/interface/SimCluster.h"
 #include "SimDataFormats/CaloAnalysis/interface/CaloParticle.h"
-#include "DataFormats/HepMCCandidate/interface/GenParticleFwd.h"
+// #include "DataFormats/HepMCCandidate/interface/GenParticleFwd.h"
 #include "DataFormats/HepMCCandidate/interface/GenParticle.h"
-#include "DataFormats/ParticleFlowReco/interface/PFRecHit.h"
+// #include "DataFormats/ParticleFlowReco/interface/PFRecHit.h"
 #include "DataFormats/CaloRecHit/interface/CaloCluster.h"
-#include "DataFormats/ParticleFlowReco/interface/PFCluster.h"
+// #include "DataFormats/ParticleFlowReco/interface/PFCluster.h"
 #include "DataFormats/Math/interface/libminifloat.h"
 
-#include "DataFormats/RecoCandidate/interface/RecoCandidate.h"
-#include "DataFormats/EgammaCandidates/interface/Conversion.h"
-#include "DataFormats/EgammaCandidates/interface/ConversionFwd.h"
-#include "DataFormats/EgammaCandidates/interface/PhotonCore.h"
-#include "DataFormats/EgammaReco/interface/ElectronSeed.h"
-#include "DataFormats/EgammaReco/interface/SuperCluster.h"
-#include "DataFormats/EgammaCandidates/interface/Photon.h"
-#include "DataFormats/EgammaCandidates/interface/GsfElectron.h"
-#include "RecoEcal/EgammaCoreTools/interface/EcalClusterTools.h"
-#include "FWCore/Utilities/interface/isFinite.h"
-#include "CondFormats/EcalObjects/interface/EcalIntercalibConstants.h"
-#include "CondFormats/DataRecord/interface/EcalIntercalibConstantsRcd.h"
+// #include "DataFormats/RecoCandidate/interface/RecoCandidate.h"
+// #include "DataFormats/EgammaCandidates/interface/Conversion.h"
+// #include "DataFormats/EgammaCandidates/interface/ConversionFwd.h"
+// #include "DataFormats/EgammaCandidates/interface/PhotonCore.h"
+// #include "DataFormats/EgammaReco/interface/ElectronSeed.h"
+// #include "DataFormats/EgammaReco/interface/SuperCluster.h"
+// #include "DataFormats/EgammaCandidates/interface/Photon.h"
+// #include "DataFormats/EgammaCandidates/interface/GsfElectron.h"
+// #include "RecoEcal/EgammaCoreTools/interface/EcalClusterTools.h"
+// #include "FWCore/Utilities/interface/isFinite.h"
+// #include "CondFormats/EcalObjects/interface/EcalIntercalibConstants.h"
+// #include "CondFormats/DataRecord/interface/EcalIntercalibConstantsRcd.h"
 #include "RecoEcal/EgammaCoreTools/interface/EcalClusterTools.h"
 
 #include "DataFormats/Math/interface/deltaR.h"
@@ -185,10 +185,6 @@ void RecoSimDumperFlat::analyze(const edm::Event& ev, const edm::EventSetup& iSe
       _esMinus = _esMinus || (0 > z);
     }
    }
-
-   edm::ESHandle<CaloTopology> caloTopology;
-   iSetup.get<CaloTopologyRecord>().get(caloTopology);
-   const CaloTopology* topology = caloTopology.product();
 
    edm::Handle<double> rhos;
    ev.getByToken(rhoToken_,rhos);
