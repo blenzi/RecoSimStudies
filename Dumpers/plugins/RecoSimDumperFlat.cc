@@ -139,12 +139,12 @@ RecoSimDumperFlat::RecoSimDumperFlat(const edm::ParameterSet& iConfig)
       tree->Branch("caloParticle_simIz","std::vector<int>",&caloParticle_simIz);
    }
    if(saveSimhits_){
-      tree->Branch("simHit_energy","std::vector<std::vector<float> >",&simHit_energy);
-      tree->Branch("simHit_eta","std::vector<std::vector<float> >",&simHit_eta);
-      tree->Branch("simHit_phi","std::vector<std::vector<float> >",&simHit_phi);
-      tree->Branch("simHit_ieta","std::vector<std::vector<int> >",&simHit_ieta);
-      tree->Branch("simHit_iphi","std::vector<std::vector<int> >",&simHit_iphi);
-      tree->Branch("simHit_iz","std::vector<std::vector<int> >",&simHit_iz);
+      tree->Branch("simHit_energy","std::vector<float>",&simHit_energy);
+      tree->Branch("simHit_eta","std::vector<float>",&simHit_eta);
+      tree->Branch("simHit_phi","std::vector<float>",&simHit_phi);
+      tree->Branch("simHit_ieta","std::vector<int>",&simHit_ieta);
+      tree->Branch("simHit_iphi","std::vector<int>",&simHit_iphi);
+      tree->Branch("simHit_iz","std::vector<int>",&simHit_iz);
    }
    if(saveRechits_){
       tree->Branch("recHit_energy","std::vector<float>",&recHit_energy);
@@ -413,7 +413,7 @@ void RecoSimDumperFlat::analyze(const edm::Event& ev, const edm::EventSetup& iSe
        caloParticle_simEnergy.push_back(reduceFloat(calo_simEnergy,nBits_));
    }
 
-   //Save noPF rechits
+   //Save rechits
    if(saveRechits_){
       for(const auto& iRechit : *(recHitsEB.product())){
 
@@ -468,6 +468,7 @@ std::vector<std::pair<DetId, float> >* RecoSimDumperFlat::getHitsAndEnergiesCalo
     std::map<DetId, float> HitsAndEnergies_map;
 
     const auto& simClusters = iCaloParticle->simClusters();
+//     const auto& hits_and_fractions = iCaloParticle->hits_and_fractions();
     for(unsigned int iSC = 0; iSC < simClusters.size() ; iSC++){
         auto simCluster = simClusters[iSC];
         auto hits_and_energies = simCluster->hits_and_energies();
