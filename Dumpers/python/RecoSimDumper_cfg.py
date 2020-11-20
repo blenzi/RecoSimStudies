@@ -4,7 +4,8 @@ import FWCore.ParameterSet.VarParsing as VarParsing
 
 options = VarParsing.VarParsing('standard')
 options.register('inputFile',
-                 'test/step3.root',
+                 #'test/step3.root',
+                 'step3.root',
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.string,
                 "inputFile")
@@ -13,7 +14,7 @@ options.register('outputFile',
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.string,
                 "outputFile")
-                
+
 options.parseArguments()
 
 process = cms.Process("RecoSimAnalysis")
@@ -30,12 +31,12 @@ process.GlobalTag = GlobalTag(process.GlobalTag,'106X_mcRun3_2021_realistic_v3',
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32( -1 ) )
 process.MessageLogger.cerr.FwkReport.reportEvery = cms.untracked.int32( 1 )
-                                                                       
+
 process.source = cms.Source("PoolSource",
-    skipEvents = cms.untracked.uint32(0),                       
+    skipEvents = cms.untracked.uint32(0),
     fileNames = cms.untracked.vstring("file:"+options.inputFile),
     secondaryFileNames = cms.untracked.vstring()
-    ) 
+    )
 
 process.load('RecoSimStudies.Dumpers.RecoSimDumper_cfi')
 
